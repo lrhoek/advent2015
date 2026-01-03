@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9f1984608207af8ab4a1b6c61f458909",
+    "packages": [
+        {
+            "name": "anarchitecture/pipe",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Anarchitecture/pipe.git",
+                "reference": "c52f9e802a1230e294b183913422c489434dea6c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/c52f9e802a1230e294b183913422c489434dea6c",
+                "reference": "c52f9e802a1230e294b183913422c489434dea6c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.5"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/pipe.php"
+                ]
+            },
+            "description": "Unary callable helpers to leverage PHP 8.5 pipes",
+            "support": {
+                "source": "https://github.com/Anarchitecture/pipe/tree/main",
+                "issues": "https://github.com/Anarchitecture/pipe/issues"
+            },
+            "time": "2026-01-03T19:34:24+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "anarchitecture/pipe": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
+}

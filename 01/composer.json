@@ -1,0 +1,11 @@
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url":  "git@github.com:Anarchitecture/pipe.git"
+    }
+  ],
+  "require": {
+    "anarchitecture/pipe": "dev-main"
+  }
+}
