@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anarchitecture/pipe.git",
-                "reference": "c52f9e802a1230e294b183913422c489434dea6c"
+                "reference": "967ff293839fd007a671c33ac521835fca1af413"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/c52f9e802a1230e294b183913422c489434dea6c",
-                "reference": "c52f9e802a1230e294b183913422c489434dea6c",
+                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/967ff293839fd007a671c33ac521835fca1af413",
+                "reference": "967ff293839fd007a671c33ac521835fca1af413",
                 "shasum": ""
             },
             "require": {
@@ -35,7 +35,7 @@
                 "source": "https://github.com/Anarchitecture/pipe/tree/main",
                 "issues": "https://github.com/Anarchitecture/pipe/issues"
             },
-            "time": "2026-01-03T19:34:24+00:00"
+            "time": "2026-01-03T21:04:13+00:00"
         }
     ],
     "packages-dev": [],
