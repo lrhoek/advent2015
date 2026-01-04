@@ -14,14 +14,12 @@ const MOVES = [
 ];
 
 function move(array $visited, string $move) : array {
-    $visited[] = [array_last($visited), MOVES[$move]]
-        |> p\zip_map(fn ($da, $db) => $da + $db);
-
+    $visited[] = array_map((fn ($da, $db) => $da + $db), array_last($visited), MOVES[$move]);
     return $visited;
 }
 
 function multimove(array $movers, array $moves) : array {
-    return [$movers, $moves] |> p\zip_map(move(...));
+    return array_map(move(...), $movers, $moves);
 }
 
 $input = file_get_contents('input')
