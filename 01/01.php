@@ -15,7 +15,8 @@ $position = $input
         fn ($current) => $current === -1
     )
     |> p\array_nth(1)
-    |> p\increment();
+    |> p\increment()
+    |> intval(...);
 
 echo $floor . PHP_EOL;
 echo $position . PHP_EOL;

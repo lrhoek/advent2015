@@ -12,16 +12,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anarchitecture/pipe.git",
-                "reference": "bad06db7f604f187f33ba75302b6485bfb34b03e"
+                "reference": "676526bf7e413fee2c62c2e9b576bf3a31a3fd6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/bad06db7f604f187f33ba75302b6485bfb34b03e",
-                "reference": "bad06db7f604f187f33ba75302b6485bfb34b03e",
+                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/676526bf7e413fee2c62c2e9b576bf3a31a3fd6c",
+                "reference": "676526bf7e413fee2c62c2e9b576bf3a31a3fd6c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.5"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1"
             },
             "default-branch": true,
             "type": "library",
@@ -35,7 +38,7 @@
                 "source": "https://github.com/Anarchitecture/pipe/tree/main",
                 "issues": "https://github.com/Anarchitecture/pipe/issues"
             },
-            "time": "2026-01-04T10:26:38+00:00"
+            "time": "2026-01-04T19:43:45+00:00"
         }
     ],
     "packages-dev": [],
