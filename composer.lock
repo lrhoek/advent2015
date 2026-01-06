@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f1984608207af8ab4a1b6c61f458909",
+    "content-hash": "1c574228b4e33251619644e30638ee4a",
     "packages": [
         {
             "name": "anarchitecture/pipe",

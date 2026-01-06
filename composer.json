@@ -1,8 +1,9 @@
 {
   "repositories": [
     {
+      "name": "pipe",
       "type": "vcs",
-      "url":  "git@github.com:Anarchitecture/pipe.git"
+      "url": "git@github.com:Anarchitecture/pipe.git"
     }
   ],
   "require": {
