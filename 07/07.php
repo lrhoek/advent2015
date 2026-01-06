@@ -46,21 +46,14 @@ function signal(array $circuit, string $search) : int {
 
         foreach ($resolvable as $output => $signal) {
             $circuit[$output][2] = $signal;
-        }
-
-        $replaceable = $circuit
-            |> p\iterable_filter(fn($wire) => isset($wire[2]))
-            |> p\iterable_map(fn($wire) => $wire[2]);
-
-        foreach ($replaceable as $candidate => $signal) {
 
             $replacements = $circuit
-                |> p\iterable_filter(fn ($wire) => in_array($candidate, $wire[0]))
+                |> p\iterable_filter(fn ($wire) => in_array($output, $wire[0]))
                 |> p\iterable_map(fn ($wire) => $wire[0])
-                |> p\iterable_map(p\array_map(fn ($operant) => $operant === $candidate ? $signal : $operant));
+                |> p\iterable_map(p\array_map(fn ($operant) => $operant === $output ? $signal : $operant));
 
-            foreach ($replacements as $output => $replacement) {
-                $circuit[$output][0] = $replacement;
+            foreach ($replacements as $replacement => $operants) {
+                $circuit[$replacement][0] = $operants;
             }
 
         }
