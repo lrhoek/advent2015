@@ -1,7 +1,5 @@
 <?php
 
-ini_set('memory_limit', "512M"); // brute force - look into RLE later
-
 require_once '../vendor/autoload.php';
 
 use Anarchitecture\pipe as p;
@@ -12,7 +10,8 @@ function look_and_say(string $string) : string {
     $count = null;
     $result = "";
 
-    foreach ($string |> str_split(...) as $character) {
+    for ($i = 0; $i < strlen($string); $i++) {
+        $character = $string[$i];
 
         if ($character !== $previous) {
             $result .= $count . $previous;
