@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c574228b4e33251619644e30638ee4a",
+    "content-hash": "fa08c5cf3660cbf323d6b0697c9e44b3",
     "packages": [
         {
             "name": "anarchitecture/pipe",
@@ -12,16 +12,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anarchitecture/pipe.git",
-                "reference": "51294358e00ca454a204627d08ad0d4c6ce1db53"
+                "reference": "564d1881098d7f5cdc91c691318189cb0be06647"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/51294358e00ca454a204627d08ad0d4c6ce1db53",
-                "reference": "51294358e00ca454a204627d08ad0d4c6ce1db53",
+                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/564d1881098d7f5cdc91c691318189cb0be06647",
+                "reference": "564d1881098d7f5cdc91c691318189cb0be06647",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.5"
+                "php": "^8.5"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1"
@@ -33,12 +33,16 @@
                     "src/pipe.php"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "description": "Unary callable helpers to leverage PHP 8.5 pipes",
             "support": {
-                "source": "https://github.com/Anarchitecture/pipe/tree/main",
-                "issues": "https://github.com/Anarchitecture/pipe/issues"
+                "issues": "https://github.com/Anarchitecture/pipe/issues",
+                "source": "https://github.com/Anarchitecture/pipe/tree/main"
             },
-            "time": "2026-01-05T15:45:11+00:00"
+            "time": "2026-01-07T09:15:10+00:00"
         }
     ],
     "packages-dev": [],
