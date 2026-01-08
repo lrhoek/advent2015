@@ -1,5 +1,5 @@
 {
     "require": {
-        "anarchitecture/pipe": "dev-main"
+        "anarchitecture/pipe": "^0.2"
     }
 }

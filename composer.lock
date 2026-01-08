@@ -4,29 +4,29 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa08c5cf3660cbf323d6b0697c9e44b3",
+    "content-hash": "848a480ad76b78fd12a2cb1a8658091c",
     "packages": [
         {
             "name": "anarchitecture/pipe",
-            "version": "dev-main",
+            "version": "v0.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anarchitecture/pipe.git",
-                "reference": "564d1881098d7f5cdc91c691318189cb0be06647"
+                "reference": "d6d664b25129e99ac7a288f04a70eaaff5a8bc92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/564d1881098d7f5cdc91c691318189cb0be06647",
-                "reference": "564d1881098d7f5cdc91c691318189cb0be06647",
+                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/d6d664b25129e99ac7a288f04a70eaaff5a8bc92",
+                "reference": "d6d664b25129e99ac7a288f04a70eaaff5a8bc92",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.5"
             },
             "require-dev": {
-                "phpstan/phpstan": "^2.1"
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^12.5"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
@@ -40,17 +40,15 @@
             "description": "Unary callable helpers to leverage PHP 8.5 pipes",
             "support": {
                 "issues": "https://github.com/Anarchitecture/pipe/issues",
-                "source": "https://github.com/Anarchitecture/pipe/tree/main"
+                "source": "https://github.com/Anarchitecture/pipe/tree/v0.2.4"
             },
-            "time": "2026-01-07T09:15:10+00:00"
+            "time": "2026-01-08T17:17:57+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "anarchitecture/pipe": 20
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {},
