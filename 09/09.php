@@ -5,8 +5,7 @@ require_once '../vendor/autoload.php';
 use Anarchitecture\pipe as p;
 
 function paths(array $paths, string $route) : array {
-    [$locations, $distance] = explode(" = ", $route);
-    [$a, $b] = explode(" to ", $locations);
+    [$a, $b, $distance] = preg_split("/ (to|=) /", $route);
 
     $paths[$a][$b] = (int) $distance;
     $paths[$b][$a] = (int) $distance;
@@ -15,8 +14,10 @@ function paths(array $paths, string $route) : array {
 }
 
 function total_distance(array $paths, array $route) : int {
-    return [array_slice($route, 0, -1), array_slice($route, 1)]
-        |> p\zip_map(fn ($from, $to) => $paths[$from][$to])
+    return $route
+        |> p\iterable_window(2)
+        |> p\iterable_map(p\apply(fn ($from, $to) => $paths[$from][$to]))
+        |> iterator_to_array(...)
         |> array_sum(...);
 }
 
