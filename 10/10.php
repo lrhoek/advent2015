@@ -6,41 +6,41 @@ use Anarchitecture\pipe as p;
 
 function look_and_say(string $string) : string {
 
-    $previous = "";
-    $count = null;
+    if (strlen($string) === 1) {
+        return "1" . $string;
+    }
+
+    $count = 1;
     $result = "";
+    $next = "";
 
-    for ($i = 0; $i < strlen($string); $i++) {
-        $character = $string[$i];
+    $string = $string
+        |> p\iterable_string()
+        |> p\iterable_window(2);
 
-        if ($character !== $previous) {
-            $result .= $count . $previous;
+    foreach ($string as [$character, $next]) {
+
+         if ($character !== $next) {
+            $result .= $count . $character;
             $count = 1;
         }
 
         else {
             $count++;
         }
-
-        $previous = $character;
-
     }
 
-    $result .= $count . $previous;
+    $result .= $count . $next;
 
     return $result;
-
 }
 
-$input = file_get_contents('input');
+$sequence = file_get_contents('input')
+    |> p\iterate(look_and_say(...))
+    |> p\iterable_filter(fn ($_, $generation) => $generation === 40 || $generation === 50)
+    |> p\iterable_take(2)
+    |> p\iterable_map(strlen(...));
 
-$gen40 = range(1, 40)
-    |> p\array_reduce(look_and_say(...), $input)
-    |> strval(...);
-
-$gen50 = range(1, 10)
-    |> p\array_reduce(look_and_say(...), $gen40)
-    |> strval(...);
-
-echo strlen($gen40) . PHP_EOL;
-echo strlen($gen50) . PHP_EOL;
+foreach ($sequence as $length) {
+    echo $length . PHP_EOL;
+}

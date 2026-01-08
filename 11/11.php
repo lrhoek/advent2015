@@ -19,7 +19,6 @@ function alpha_decode(string $string) : int
 function alpha_encode(int $number) : string {
 
     $digits = range("a", "z");
-
     $string = "";
 
     while ($number > 0) {
@@ -54,7 +53,7 @@ function rule_pairs(string $string) : bool {
         |> count(...) >= 2;
 }
 
-function generate_next(string $input) : Generator{
+function password_generator(string $input) : Generator {
     yield from alpha_decode($input) + 1
         |> p\iterable_ticker(...)
         |> p\iterable_map(alpha_encode(...))
@@ -64,7 +63,7 @@ function generate_next(string $input) : Generator{
 }
 
 $generator = file_get_contents('input')
-    |> generate_next(...)
+    |> password_generator(...)
     |> p\iterable_take(2);
 
 foreach ($generator as $password) {
