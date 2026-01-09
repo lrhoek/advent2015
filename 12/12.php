@@ -1,36 +1,42 @@
 <?php
 
+declare(strict_types=1);
+
 require_once '../vendor/autoload.php';
 
 use Anarchitecture\pipe as p;
 
-function exclude_red($data) : array {
-    return in_array("red", $data) ? [] : array_values($data);
+function include_all(array|object $data) : array {
+    return (array) $data;
 }
 
-function get(?callable $transformer = null) {
+function exclude_red(array|object $data) : array {
+    return match (is_object($data)) {
+        true => in_array("red", (array) $data, true) ? [] : (array) $data,
+        default => $data
+    };
+}
 
-    $transformer ??= array_values(...);
-
-    return function (mixed $data) use ($transformer) {
-        $data = is_object($data) ? get_object_vars($data) |> $transformer : $data;
-
-        return match (true) {
-            is_numeric($data) => $data,
-            is_array($data) => $data
-                |> p\array_map(get($transformer))
-                |> array_sum(...),
-            default => 0
-        };
+function sum(mixed $data, callable $policy) : int {
+    return match (true) {
+        is_int($data) || is_float($data) => (int) $data,
+        is_array($data) || is_object($data) => $data
+            |> $policy
+            |> array_values(...)
+            |> p\array_map(fn ($item) => sum($item, $policy))
+            |> array_sum(...),
+        default => 0
     };
 }
 
 $input = file_get_contents('input')
     |> json_decode(...);
 
-$transformers = [null, exclude_red(...)]
-    |> p\iterable_map(fn ($transformer) => get($transformer)($input));
+$policies = [
+    include_all(...),
+    exclude_red(...)
+];
 
-foreach ($transformers as $result) {
-    echo $result . PHP_EOL;
+foreach ($policies as $policy) {
+    echo sum($input, $policy) . PHP_EOL;
 }
