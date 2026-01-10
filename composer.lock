@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "848a480ad76b78fd12a2cb1a8658091c",
+    "content-hash": "1da30e01b35a2df8b450ea74ba2c2fa1",
     "packages": [
         {
             "name": "anarchitecture/pipe",
-            "version": "v0.2.6",
+            "version": "v0.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anarchitecture/pipe.git",
-                "reference": "4852361afe5145bf4c5f4ab5f4cfb09935075839"
+                "reference": "abec94040b0b7a1912374e0cf4418b2a4802677a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/4852361afe5145bf4c5f4ab5f4cfb09935075839",
-                "reference": "4852361afe5145bf4c5f4ab5f4cfb09935075839",
+                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/abec94040b0b7a1912374e0cf4418b2a4802677a",
+                "reference": "abec94040b0b7a1912374e0cf4418b2a4802677a",
                 "shasum": ""
             },
             "require": {
@@ -40,9 +40,9 @@
             "description": "Unary callable helpers to leverage PHP 8.5 pipes",
             "support": {
                 "issues": "https://github.com/Anarchitecture/pipe/issues",
-                "source": "https://github.com/Anarchitecture/pipe/tree/v0.2.6"
+                "source": "https://github.com/Anarchitecture/pipe/tree/v0.2.7"
             },
-            "time": "2026-01-09T23:57:03+00:00"
+            "time": "2026-01-10T10:29:10+00:00"
         }
     ],
     "packages-dev": [],

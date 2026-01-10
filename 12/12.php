@@ -7,20 +7,21 @@ require_once '../vendor/autoload.php';
 use Anarchitecture\pipe as p;
 
 function include_all(object $data) : array {
-    return get_object_vars($data);
+    return $data
+        |> get_object_vars(...);
 }
 
 function exclude_red(object $data) : array {
     return $data
         |> get_object_vars(...)
-        |> p\when(fn ($x) => in_array("red", $x, true), fn ($_) => [])
+        |> p\when(p\array_any(p\equals("red")), p\value([]))
         |> array_values(...);
 }
 
 function sum($data, callable $normalizer) : int {
     return $data
         |> p\when(is_object(...), $normalizer)
-        |> p\when(is_array(...), p\array_reduce(fn ($sum, $x) => $sum + sum($x, $normalizer), 0))
+        |> p\when(is_array(...), p\array_sum(fn ($x) => sum($x, $normalizer)))
         |> intval(...);
 }
 
