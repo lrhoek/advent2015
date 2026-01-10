@@ -6,12 +6,12 @@ require_once '../vendor/autoload.php';
 
 use Anarchitecture\pipe as p;
 
-function wrapping_paper(int $d1, int $d2, int $d3) : int {
-    return 3 * $d1 * $d2 + 2 * $d2 * $d3 + 2 * $d3 * $d1;
+function wrapping_paper(int $x, int $y, int $z) : int {
+    return (3 * $x * $y) + (2 * $y * $z) + (2 * $z * $x);
 }
 
-function ribbon(int $d1, int $d2, int $d3) : int {
-    return 2 * $d1 + 2 * $d2 + $d1 * $d2 * $d3;
+function ribbon(int $x, int $y, int $z) : int {
+    return (2 * $x) + (2 * $y) + ($x * $y * $z);
 }
 
 function total(array $input, callable $mapper) : int {
