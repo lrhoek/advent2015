@@ -22,7 +22,7 @@ function happiness(iterable $arrangement, array $attendees, bool $add_me) : int 
 
     return $arrangement
         |> p\iterable_window(2, true)
-        |> p\iterable_map(p\apply(fn ($a, $b) => $attendees[$a][$b] + $attendees[$b][$a]))
+        |> p\iterable_map(p\apply(fn ($left, $right) => $attendees[$left][$right] + $attendees[$right][$left]))
         |> iterator_to_array(...)
         |> p\when(p\value($add_me), add_me(...))
         |> array_sum(...);
