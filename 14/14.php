@@ -27,27 +27,27 @@ function fly($reindeer, $seconds) : int {
     return $distance;
 }
 
-function distances($reindeer, $seconds) : array {
-    return $reindeer
-        |> p\array_map(fn ($deer) => fly($deer, $seconds))
+function distances($herd, $seconds) : array {
+    return $herd
+        |> p\array_map(fn ($reindeer) => fly($reindeer, $seconds))
         |> array_values(...);
 }
 
-function points($reindeer, $seconds) : array {
+function points($herd, $seconds) : array {
 
-    $points = $reindeer
+    $points = $herd
         |> p\array_map(p\value(0))
         |> array_values(...);
 
     while ($seconds > 0) {
-        $distances = distances($reindeer, $seconds);
+        $distances = distances($herd, $seconds);
 
         $leaders = $distances
             |> p\array_filter(p\equals(max($distances)))
             |> array_keys(...);
 
-        foreach ($leaders as $leader) {
-            $points[$leader]++;
+        foreach ($leaders as $reindeer) {
+            $points[$reindeer]++;
         }
 
         $seconds--;
@@ -61,10 +61,10 @@ function winner(array $reindeer, callable $system, int $seconds) : int {
         |> max(...);
 }
 
-$reindeer = file_get_contents('input')
+$herd = file_get_contents('input')
     |> p\explode(PHP_EOL)
     |> p\array_map(reindeer(...))
     |> array_values(...);
 
-echo winner($reindeer, distances(...), 2503) . PHP_EOL;
-echo winner($reindeer, points(...), 2503) . PHP_EOL;
+echo winner($herd, distances(...), 2503) . PHP_EOL;
+echo winner($herd, points(...), 2503) . PHP_EOL;
