@@ -7,9 +7,11 @@ require_once '../vendor/autoload.php';
 use Anarchitecture\pipe as p;
 
 function attendees(array $attendees, string $change) : array {
-    preg_match("/([A-Z][a-z]*) .* (lose|gain) (\\d*) .* ([A-Z][a-z]*)/", $change, $matches);
 
-    [$a, $change, $amount, $b] = array_slice($matches, 1);
+    [$a, $change, $amount, $b] = $change
+        |> p\preg_match("/([A-Z][a-z]*) .* (lose|gain) (\\d*) .* ([A-Z][a-z]*)/")
+        |> p\array_slice(1)
+        |> array_values(...);
 
     $attendees[$a][$b] = $change === "gain" ? $amount : -$amount;
 
@@ -37,6 +39,7 @@ function optimal_seating(array $attendees, bool $add_me = false) : int {
 }
 
 function add_me(array $increases) : array {
+
     return $increases
         |> p\sort()
         |> p\array_slice(1)
