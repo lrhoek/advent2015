@@ -16,8 +16,10 @@ function ingredient(string $ingredient) : array {
 }
 
 function score(array $recipe, array $ingredients, ?int $calorie_target) : int {
-    return [$recipe, $ingredients]
-        |> p\zip_map(fn ($amount, $ingredient) => $ingredient |> p\array_map(fn ($property) => $amount * $property))
+    return $recipe
+        |> p\iterable_zip($ingredients)
+        |> p\iterable_map(p\apply(fn ($amount, $ingredient) => $ingredient |> p\array_map(fn ($property) => $amount * $property)))
+        |> iterator_to_array(...)
         |> p\array_transpose()
         |> p\array_map(fn ($property) => max(0, array_sum($property)))
         |> p\if_else(
