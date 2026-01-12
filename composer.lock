@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "anarchitecture/pipe",
-            "version": "v0.2.11",
+            "version": "v0.2.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anarchitecture/pipe.git",
-                "reference": "7ac1310a866af676288e7c3acb3cfdea702e05e0"
+                "reference": "7fdda147d35709030f3fd060f258d5bc776abcf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/7ac1310a866af676288e7c3acb3cfdea702e05e0",
-                "reference": "7ac1310a866af676288e7c3acb3cfdea702e05e0",
+                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/7fdda147d35709030f3fd060f258d5bc776abcf2",
+                "reference": "7fdda147d35709030f3fd060f258d5bc776abcf2",
                 "shasum": ""
             },
             "require": {
@@ -40,9 +40,9 @@
             "description": "Unary callable helpers to leverage PHP 8.5 pipes",
             "support": {
                 "issues": "https://github.com/Anarchitecture/pipe/issues",
-                "source": "https://github.com/Anarchitecture/pipe/tree/v0.2.11"
+                "source": "https://github.com/Anarchitecture/pipe/tree/v0.2.13"
             },
-            "time": "2026-01-11T23:57:57+00:00"
+            "time": "2026-01-12T12:02:04+00:00"
         }
     ],
     "packages-dev": [],

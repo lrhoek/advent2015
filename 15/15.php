@@ -16,31 +16,19 @@ function ingredient(string $ingredient) : array {
 }
 
 function score(array $recipe, array $ingredients, ?int $calorie_target) : int {
-
-    $sums = [];
-
-    foreach ($recipe as $ingredient => $amount) {
-
-        foreach ($ingredients[$ingredient] as $property => $change) {
-
-            $sums[$property] ??= 0;
-            $sums[$property] += $amount * $change;
-        }
-    }
-
-    $calories = array_pop($sums);
-
-    if (is_int($calorie_target) && $calories !== $calorie_target) {
-        return 0;
-    }
-
-    return $sums
-        |> p\array_map(fn ($sum) => max(0, $sum))
+    return [$recipe, $ingredients]
+        |> p\zip_map(fn ($amount, $ingredient) => $ingredient |> p\array_map(fn ($property) => $amount * $property))
+        |> p\array_transpose()
+        |> p\array_map(fn ($property) => max(0, array_sum($property)))
+        |> p\if_else(
+            fn ($properties) => is_int($calorie_target) && array_last($properties) !== $calorie_target,
+            fn ($properties) => ([array_key_last($properties) => 0] + $properties),
+            fn ($properties) => ([array_key_last($properties) => 1] + $properties)
+        )
         |> array_product(...);
 }
 
 function best(array $ingredients, ?int $calorie_target = null) : int {
-
     return $ingredients
         |> p\iterable_allocate(100)
         |> p\iterable_map(fn($recipe) => score($recipe, $ingredients, $calorie_target))
