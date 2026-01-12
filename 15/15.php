@@ -7,12 +7,11 @@ require_once '../vendor/autoload.php';
 
 use Anarchitecture\pipe as p;
 
-function ingredient(string $ingredient) : array {
+function ingredient(string $ingredient) {
     return $ingredient
-        |> p\preg_match_all("/(-?\\d+)/")
-        |> array_first(...)
-        |> p\array_map(intval(...))
-        |> array_values(...);
+        |> p\preg_match_all("/([a-z]+) (-?\d+)/", PREG_SET_ORDER)
+        |> p\array_reduce(fn ($properties, $property) => [$property[1] => $property[2]] + $properties, [])
+        |> p\array_map(intval(...));
 }
 
 function score(array $recipe, array $ingredients, ?int $calorie_target) : int {
@@ -23,9 +22,9 @@ function score(array $recipe, array $ingredients, ?int $calorie_target) : int {
         |> p\array_transpose()
         |> p\array_map(fn ($property) => max(0, array_sum($property)))
         |> p\if_else(
-            fn ($properties) => is_int($calorie_target) && array_last($properties) !== $calorie_target,
-            fn ($properties) => ([array_key_last($properties) => 0] + $properties),
-            fn ($properties) => ([array_key_last($properties) => 1] + $properties)
+            fn ($properties) => is_int($calorie_target) && $properties["calories"] !== $calorie_target,
+            fn ($properties) => (["calories" => 0] + $properties),
+            fn ($properties) => (["calories" => 1] + $properties)
         )
         |> array_product(...);
 }
