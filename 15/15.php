@@ -9,24 +9,31 @@ use Anarchitecture\pipe as p;
 function ingredient(string $ingredient) : array {
     return $ingredient
         |> p\preg_match_all("/(?<property>[a-z]+) (?<amount>-?\d+)/", PREG_SET_ORDER)
-        |> p\array_reduce(fn ($properties, $property) => [$property["property"] => (int) $property["amount"]] + $properties, [])
-        |> p\collect(...);
+        |> p\array_map(fn ($match) => [$match["property"] => (int) $match["amount"]])
+        |> p\array_flatten(...);
 }
 
 function cookie(array $recipe, array $ingredients) : array {
     return $recipe
         |> p\iterable_zip($ingredients)
-        |> p\iterable_map(p\apply(fn ($amount, $ingredient) => $ingredient |> p\array_map(fn ($property) => $amount * $property)))
+        |> p\iterable_map(p\apply(scale_ingredient(...)))
         |> p\collect(...)
         |> p\array_transpose()
         |> p\array_map(fn ($property) => max(0, array_sum($property)))
         |> p\collect(...);
 }
 
+function scale_ingredient(int $amount, array $ingredient) : array {
+    return $ingredient
+        |> p\array_map(fn ($v) => $amount * $v)
+        |> p\collect(...);
+}
+
 function score(array $cookie) : int {
     return $cookie
         |> p\array_dissoc("calories")
-        |> array_product(...);
+        |> array_product(...)
+        |> intval(...);
 }
 
 function best(array $ingredients, int $teaspoons, ?int $calorie_target = null) : int {
@@ -40,6 +47,7 @@ function best(array $ingredients, int $teaspoons, ?int $calorie_target = null) :
 }
 
 $ingredients = file_get_contents('input')
+    |> trim(...)
     |> p\explode(PHP_EOL)
     |> p\array_map(ingredient(...))
     |> p\collect(...);
