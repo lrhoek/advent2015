@@ -8,9 +8,8 @@ use Anarchitecture\pipe as p;
 
 function ingredient(string $ingredient) : array {
     return $ingredient
-        |> p\preg_match_all("/([a-z]+) (-?\d+)/", PREG_SET_ORDER)
-        |> p\array_reduce(fn ($properties, $property) => [$property[1] => $property[2]] + $properties, [])
-        |> p\array_map(intval(...))
+        |> p\preg_match_all("/(?<property>[a-z]+) (?<amount>-?\d+)/", PREG_SET_ORDER)
+        |> p\array_reduce(fn ($properties, $property) => [$property["property"] => (int) $property["amount"]] + $properties, [])
         |> p\collect(...);
 }
 
@@ -27,8 +26,7 @@ function cookie(array $recipe, array $ingredients) : array {
 function score(array $cookie) : int {
     return $cookie
         |> p\array_dissoc("calories")
-        |> array_product(...)
-        |> intval(...);
+        |> array_product(...);
 }
 
 function best(array $ingredients, int $teaspoons, ?int $calorie_target = null) : int {
@@ -41,10 +39,10 @@ function best(array $ingredients, int $teaspoons, ?int $calorie_target = null) :
         |> intval(...);
 }
 
-/** @var array $ingredients */
 $ingredients = file_get_contents('input')
     |> p\explode(PHP_EOL)
-    |> p\array_map(ingredient(...));
+    |> p\array_map(ingredient(...))
+    |> p\collect(...);
 
 echo best($ingredients, 100) . PHP_EOL;
 echo best($ingredients, 100, 500) . PHP_EOL;
