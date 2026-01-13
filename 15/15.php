@@ -25,7 +25,7 @@ function cookie(array $recipe, array $ingredients) : array {
 
 function scale_ingredient(int $amount, array $ingredient) : array {
     return $ingredient
-        |> p\array_map(fn ($v) => $amount * $v)
+        |> p\array_map(fn ($property) => $amount * $property)
         |> p\collect(...);
 }
 
