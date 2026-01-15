@@ -27,8 +27,9 @@ function corners_always_on(array $grid) : array {
     return $grid;
 }
 
-function count_on(array $grid, int $steps): int {
+function count_on(array $grid, int $steps, bool $corners_always_on = false): int {
     return $grid
+        |> p\when(p\value($corners_always_on), corners_always_on(...))
         |> p\iterate(step(...))
         |> p\iterable_nth($steps)
         |> p\array_flatten(...)
@@ -66,4 +67,4 @@ $grid = file_get_contents('input')
     |> p\collect(...);
 
 echo count_on($grid, 100) . PHP_EOL;
-echo count_on($grid |> corners_always_on(...), 100) . PHP_EOL;
+echo count_on($grid, 100, true) . PHP_EOL;
