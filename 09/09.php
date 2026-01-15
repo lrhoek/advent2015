@@ -2,6 +2,7 @@
 
 require_once '../vendor/autoload.php';
 
+use Anarchitecture\combinatorics as c;
 use Anarchitecture\pipe as p;
 
 function paths(array $paths, string $route) : array {
@@ -23,7 +24,7 @@ function total_distance(array $paths, array $route) : int {
 
 function distance(array $paths, callable $selector) : int {
     return array_keys($paths)
-        |> p\iterable_permutation(...)
+        |> c\iterable_permutations()
         |> p\iterable_map(fn ($route) => total_distance($paths, $route))
         |> p\iterable_reduce(fn ($carry, $distance) => $selector($carry ?? $distance, $distance))
         |> intval(...);

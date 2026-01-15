@@ -1,5 +1,6 @@
 {
     "require": {
-        "anarchitecture/pipe": "^0.2"
+        "anarchitecture/pipe": "^0.3",
+        "anarchitecture/combinatorics": "^0.1.0"
     }
 }

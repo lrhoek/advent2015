@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require_once '../vendor/autoload.php';
 
+use Anarchitecture\combinatorics as c;
 use Anarchitecture\pipe as p;
 
 function attendees(array $attendees, string $change) : array {
@@ -32,7 +33,7 @@ function optimal_seating(array $attendees, bool $add_me = false) : int {
 
     return $attendees
         |> array_keys(...)
-        |> p\iterable_permutation(...)
+        |> c\iterable_permutations()
         |> p\iterable_map(fn ($arrangement) => happiness($arrangement, $attendees, $add_me))
         |> iterator_to_array(...)
         |> max(...);

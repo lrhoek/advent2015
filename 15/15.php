@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require_once '../vendor/autoload.php';
 
+use Anarchitecture\combinatorics as c;
 use Anarchitecture\pipe as p;
 
 function ingredient(string $ingredient) : array {
@@ -38,7 +39,7 @@ function score(array $cookie) : int {
 
 function best(array $ingredients, int $teaspoons, ?int $calorie_target = null) : int {
     return $ingredients
-        |> p\iterable_allocate($teaspoons)
+        |> c\iterable_allocations($teaspoons)
         |> p\iterable_map(fn($recipe) => cookie($recipe, $ingredients))
         |> p\iterable_filter(fn ($properties) => !is_int($calorie_target) || $properties["calories"] === $calorie_target)
         |> p\iterable_map(score(...))

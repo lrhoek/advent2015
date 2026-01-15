@@ -2,6 +2,7 @@
 
 require_once '../vendor/autoload.php';
 
+use Anarchitecture\combinatorics as c;
 use Anarchitecture\pipe as p;
 
 function count_minimum(iterable $containers) : int {
@@ -18,7 +19,7 @@ $containers = file_get_contents('input')
     |> trim(...)
     |> p\explode(PHP_EOL)
     |> p\array_map(intval(...))
-    |> p\iterable_combinations_all()
+    |> c\iterable_powerset()
     |> p\iterable_filter(fn ($combination) => array_sum($combination) === 150)
     |> p\collect(...);
 
