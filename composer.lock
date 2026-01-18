@@ -4,29 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cfe056f8a914340980c6d8613369ed49",
+    "content-hash": "370a202860f37c0004e8f6788440e7ce",
     "packages": [
         {
             "name": "anarchitecture/combinatorics",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anarchitecture/combinatorics.git",
-                "reference": "7543b49d3a5a9671bf6d7d134f3bfb20438d93e9"
+                "reference": "8be1f0f95b8665bed0c493d8af623162c9902e4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anarchitecture/combinatorics/zipball/7543b49d3a5a9671bf6d7d134f3bfb20438d93e9",
-                "reference": "7543b49d3a5a9671bf6d7d134f3bfb20438d93e9",
+                "url": "https://api.github.com/repos/Anarchitecture/combinatorics/zipball/8be1f0f95b8665bed0c493d8af623162c9902e4f",
+                "reference": "8be1f0f95b8665bed0c493d8af623162c9902e4f",
                 "shasum": ""
             },
             "require": {
-                "anarchitecture/pipe": "^0.3",
                 "php": "^8.5"
             },
             "require-dev": {
                 "phpstan/phpstan": "^2.1",
                 "phpunit/phpunit": "^12.5"
+            },
+            "suggest": {
+                "anarchitecture/pipe": "For building easy pipelines"
             },
             "type": "library",
             "autoload": {
@@ -40,22 +42,22 @@
             ],
             "description": "Combinatorics helpers for functional pipelines (powerset, permutations, allocations) for PHP 8.5+.",
             "support": {
-                "source": "https://github.com/Anarchitecture/combinatorics/tree/v0.1.0"
+                "source": "https://github.com/Anarchitecture/combinatorics/tree/v0.1.1"
             },
-            "time": "2026-01-15T11:14:11+00:00"
+            "time": "2026-01-18T19:11:04+00:00"
         },
         {
             "name": "anarchitecture/pipe",
-            "version": "v0.3.3",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anarchitecture/pipe.git",
-                "reference": "7a1047b7f594047fa20001b2bea3c687fc6e49c9"
+                "reference": "46ed8589c71ce65c3f5ea6607183eb34ec1e8dcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/7a1047b7f594047fa20001b2bea3c687fc6e49c9",
-                "reference": "7a1047b7f594047fa20001b2bea3c687fc6e49c9",
+                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/46ed8589c71ce65c3f5ea6607183eb34ec1e8dcc",
+                "reference": "46ed8589c71ce65c3f5ea6607183eb34ec1e8dcc",
                 "shasum": ""
             },
             "require": {
@@ -78,9 +80,9 @@
             "description": "Unary callable helpers to leverage PHP 8.5 pipes",
             "support": {
                 "issues": "https://github.com/Anarchitecture/pipe/issues",
-                "source": "https://github.com/Anarchitecture/pipe/tree/v0.3.3"
+                "source": "https://github.com/Anarchitecture/pipe/tree/v0.4.0"
             },
-            "time": "2026-01-18T10:40:12+00:00"
+            "time": "2026-01-18T16:27:49+00:00"
         },
         {
             "name": "markrogoyski/math-php",

@@ -1,6 +1,6 @@
 {
     "require": {
-        "anarchitecture/pipe": "^0.3",
+        "anarchitecture/pipe": "^0.4",
         "anarchitecture/combinatorics": "^0.1.0",
         "markrogoyski/math-php": "^2.13"
     }
