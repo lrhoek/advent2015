@@ -49,22 +49,23 @@
         },
         {
             "name": "anarchitecture/pipe",
-            "version": "v0.4.0",
+            "version": "v0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Anarchitecture/pipe.git",
-                "reference": "46ed8589c71ce65c3f5ea6607183eb34ec1e8dcc"
+                "reference": "a0c3edfba0d0a2466a859420721b8b40898a3068"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/46ed8589c71ce65c3f5ea6607183eb34ec1e8dcc",
-                "reference": "46ed8589c71ce65c3f5ea6607183eb34ec1e8dcc",
+                "url": "https://api.github.com/repos/Anarchitecture/pipe/zipball/a0c3edfba0d0a2466a859420721b8b40898a3068",
+                "reference": "a0c3edfba0d0a2466a859420721b8b40898a3068",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.5"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.93",
                 "phpstan/phpstan": "^2.1",
                 "phpunit/phpunit": "^12.5"
             },
@@ -81,9 +82,9 @@
             "description": "Unary callable helpers to leverage PHP 8.5 pipes",
             "support": {
                 "issues": "https://github.com/Anarchitecture/pipe/issues",
-                "source": "https://github.com/Anarchitecture/pipe/tree/v0.4.0"
+                "source": "https://github.com/Anarchitecture/pipe/tree/v0.4.3"
             },
-            "time": "2026-01-18T16:27:49+00:00"
+            "time": "2026-02-03T12:34:50+00:00"
         },
         {
             "name": "markrogoyski/math-php",
